@@ -89,7 +89,7 @@ Formato de error:
 
 1. Editar `data/products.json`. No cambiar nunca el `id` de un producto existente.
 2. En local, los cambios se ven en el siguiente pedido, sin reiniciar.
-3. En producción: hacer commit y push; el despliegue se documenta al publicar la API.
+3. En producción: hacer commit y push a `main`. Vercel despliega automáticamente en https://woo-api-sync-api.vercel.app (tarda menos de un minuto). Verificar en el dashboard de Vercel, pestaña Deployments.
 
 Para validar el JSON antes de guardar el commit:
 
