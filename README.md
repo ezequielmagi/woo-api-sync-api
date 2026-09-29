@@ -76,6 +76,8 @@ Devuelve un producto por su `id`.
 |--------|---------------------|--------------------------------------------------------|
 | 404    | `product_not_found` | El `id` pedido no existe.                              |
 | 500    | `data_unavailable`  | `products.json` no se pudo leer o no es una lista válida. |
+| 404    | `route_not_found`   | La ruta pedida no existe (URL mal configurada).        |
+| 500    | `internal_error`    | Error inesperado de la API.                            |
 
 Formato de error:
 

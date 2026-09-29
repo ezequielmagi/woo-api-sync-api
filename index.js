@@ -59,6 +59,23 @@ app.get('/products/:id', async (req, res) => {
   }
 });
 
+// Cualquier ruta no definida responde JSON, no la página HTML por defecto de Express.
+app.use((req, res) => {
+  res.status(404).json({
+    error: 'route_not_found',
+    message: `La ruta ${req.method} ${req.path} no existe.`
+  });
+});
+
+// Último recurso: cualquier error no atrapado responde JSON y queda en el log.
+app.use((err, req, res, next) => {
+  console.error('Error no controlado:', err);
+  res.status(500).json({
+    error: 'internal_error',
+    message: 'Error interno de la API.'
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`API escuchando en http://localhost:${PORT}`);
 });
