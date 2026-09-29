@@ -1,44 +1,62 @@
 import express from 'express';
+import { readFile } from 'node:fs/promises';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Por ahora el producto vive en el código. En el próximo hito pasa a un JSON.
-const products = [
-  {
-    id: 'prod-001',
-    sku: 'PRAC-001',
-    name: 'Taza de cerámica artesanal',
-    description: 'Taza de 350 ml esmaltada a mano. Producto ficticio para pruebas.',
-    price: '12500.00',
-    currency: 'ARS',
-    stock: 15,
-    image_url: 'https://picsum.photos/seed/prac-001/800/800.jpg'
-  }
-];
+// Ruta al archivo de datos, relativa a este archivo (no a la carpeta desde donde se ejecuta).
+const DATA_FILE = new URL('./data/products.json', import.meta.url);
 
-// Ruta de salud: sirve para comprobar rápido que la API responde.
+// Lee y valida el archivo en cada pedido, así los cambios se ven sin reiniciar.
+async function loadProducts() {
+  const raw = await readFile(DATA_FILE, 'utf8');
+  const parsed = JSON.parse(raw);
+
+  if (!Array.isArray(parsed)) {
+    throw new Error('products.json debe contener una lista de productos.');
+  }
+
+  return parsed;
+}
+
+// Respuesta única para cuando no se pueden leer los datos.
+function sendDataError(res, error) {
+  console.error('Error leyendo products.json:', error.message);
+  res.status(500).json({
+    error: 'data_unavailable',
+    message: 'No se pudieron leer los productos. Revisá el archivo de datos.'
+  });
+}
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// Listar todos los productos.
-app.get('/products', (req, res) => {
-  res.json({ count: products.length, data: products });
+app.get('/products', async (req, res) => {
+  try {
+    const products = await loadProducts();
+    res.json({ count: products.length, data: products });
+  } catch (error) {
+    sendDataError(res, error);
+  }
 });
 
-// Obtener un producto por su id.
-app.get('/products/:id', (req, res) => {
-  const product = products.find((p) => p.id === req.params.id);
+app.get('/products/:id', async (req, res) => {
+  try {
+    const products = await loadProducts();
+    const product = products.find((p) => p.id === req.params.id);
 
-  if (!product) {
-    return res.status(404).json({
-      error: 'product_not_found',
-      message: `No existe un producto con id "${req.params.id}".`
-    });
+    if (!product) {
+      return res.status(404).json({
+        error: 'product_not_found',
+        message: `No existe un producto con id "${req.params.id}".`
+      });
+    }
+
+    res.json({ data: product });
+  } catch (error) {
+    sendDataError(res, error);
   }
-
-  res.json({ data: product });
 });
 
 app.listen(PORT, () => {

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "prod-001",
+    "sku": "PRAC-001",
+    "name": "Taza de cerámica artesanal",
+    "description": "Taza de 350 ml esmaltada a mano. Producto ficticio para pruebas.",
+    "price": "12500.00",
+    "currency": "ARS",
+    "stock": 15,
+    "image_url": "https://picsum.photos/seed/prac-001/800/800.jpg"
+  },
+  {
+    "id": "prod-002",
+    "sku": "PRAC-002",
+    "name": "Mate de calabaza forrado",
+    "description": "Mate de calabaza forrado en cuero con virola de alpaca. Producto ficticio para pruebas.",
+    "price": "18900.00",
+    "currency": "ARS",
+    "stock": 8,
+    "image_url": "https://picsum.photos/seed/prac-002/800/800.jpg"
+  },
+  {
+    "id": "prod-003",
+    "sku": "PRAC-003",
+    "name": "Cuaderno A5 tapa dura",
+    "description": "Cuaderno de 120 hojas punteadas con tapa dura. Producto ficticio para pruebas.",
+    "price": "7800.00",
+    "currency": "ARS",
+    "stock": 40,
+    "image_url": "https://picsum.photos/seed/prac-003/800/800.jpg"
+  },
+  {
+    "id": "prod-004",
+    "sku": "PRAC-004",
+    "name": "Vela de soja aromática",
+    "description": "Vela de cera de soja en frasco de vidrio, aroma lavanda. Producto ficticio para pruebas.",
+    "price": "9600.00",
+    "currency": "ARS",
+    "stock": 22,
+    "image_url": "https://picsum.photos/seed/prac-004/800/800.jpg"
+  },
+  {
+    "id": "prod-005",
+    "sku": "PRAC-005",
+    "name": "Tabla de madera para picadas",
+    "description": "Tabla de algarrobo de 40 x 20 cm. Producto ficticio para pruebas.",
+    "price": "24300.00",
+    "currency": "ARS",
+    "stock": 5,
+    "image_url": "https://picsum.photos/seed/prac-005/800/800.jpg"
+  },
+  {
+    "id": "prod-006",
+    "sku": "PRAC-006",
+    "name": "Bolsa de tela reutilizable",
+    "description": "Bolsa de lienzo crudo con manijas reforzadas. Producto ficticio para pruebas.",
+    "price": "5400.00",
+    "currency": "ARS",
+    "stock": 60,
+    "image_url": "https://picsum.photos/seed/prac-006/800/800.jpg"
+  },
+  {
+    "id": "prod-007",
+    "sku": "PRAC-007",
+    "name": "Maceta de cemento mediana",
+    "description": "Maceta de cemento de 15 cm de diámetro con drenaje. Producto ficticio para pruebas.",
+    "price": "11200.00",
+    "currency": "ARS",
+    "stock": 12,
+    "image_url": "https://picsum.photos/seed/prac-007/800/800.jpg"
+  },
+  {
+    "id": "prod-008",
+    "sku": "PRAC-008",
+    "name": "Set de posavasos de corcho",
+    "description": "Set de 6 posavasos de corcho natural. Producto ficticio para pruebas.",
+    "price": "4900.00",
+    "currency": "ARS",
+    "stock": 30,
+    "image_url": "https://picsum.photos/seed/prac-008/800/800.jpg"
+  },
+  {
+    "id": "prod-009",
+    "sku": "PRAC-009",
+    "name": "Lámpara de escritorio de madera",
+    "description": "Lámpara de escritorio con base de madera y brazo articulado. Producto ficticio para pruebas.",
+    "price": "38700.00",
+    "currency": "ARS",
+    "stock": 3,
+    "image_url": "https://picsum.photos/seed/prac-009/800/800.jpg"
+  },
+  {
+    "id": "prod-010",
+    "sku": "PRAC-010",
+    "name": "Termo de acero 1 litro",
+    "description": "Termo de acero inoxidable de 1 litro con pico cebador. Producto ficticio para pruebas.",
+    "price": "45500.00",
+    "currency": "ARS",
+    "stock": 7,
+    "image_url": "https://picsum.photos/seed/prac-010/800/800.jpg"
+  }
+]
