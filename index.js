@@ -28,6 +28,12 @@ function sendDataError(res, error) {
   });
 }
 
+// CORS: permite que páginas de cualquier origen lean las respuestas de esta API.
+app.use((req, res, next) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
